@@ -10,8 +10,8 @@
         :root {
             --navy: #0a192f;
             --white: #ffffff;
-            --gold: #c5a059;
-            --overlay: rgba(10, 25, 47, 0.45);
+            --light-grey: #f8fafc;
+            --muted: #64748b;
         }
 
         body {
@@ -26,39 +26,32 @@
 
         /* --- NAVIGATION --- */
         nav {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            padding: 40px 60px;
-            z-index: 1000;
+            padding: 40px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-sizing: border-box;
+            border-bottom: 1px solid #eee;
         }
 
         .brand {
             font-size: 0.9rem;
             font-weight: 600;
             letter-spacing: 3px;
-            color: white;
+            color: var(--navy);
             text-transform: uppercase;
         }
 
-        /* --- DEFINITION-CENTRIC HERO --- */
+        /* --- HERO: WHITE & BLUE MINIMALISM --- */
         header {
-            height: 100vh;
-            position: relative;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(var(--overlay), var(--overlay)), 
-                        url('ionwaterfront.png'); 
-            background-size: cover;
-            background-position: center;
-            color: white;
+            background: var(--white);
+            color: var(--navy);
             text-align: left;
+            border-bottom: 1px solid #eee;
         }
 
         .hero-definition-container {
@@ -67,57 +60,54 @@
             gap: 100px;
             width: 80%;
             max-width: 1100px;
-            z-index: 10;
         }
 
         .def-hero-column {
             padding-left: 30px;
-            border-left: 1px solid rgba(255, 255, 255, 0.3);
-            animation: fadeIn 2.5s ease-out;
+            border-left: 1px solid rgba(10, 25, 47, 0.1);
+            animation: fadeIn 2s ease-out;
         }
 
         .def-hero-label {
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: block;
-            opacity: 0.7;
+            color: var(--muted);
         }
 
         .def-hero-word {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin: 0;
             font-weight: 400;
         }
 
         .def-hero-meaning {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-style: italic;
-            opacity: 0.9;
+            opacity: 0.8;
             margin-top: 5px;
         }
 
-        /* The Conclusion in the Water */
-        .hero-water-finish {
-            position: absolute;
-            bottom: 8%;
+        /* The Enlarged Conclusion */
+        .hero-statement-finish {
+            padding: 120px 8%;
             text-align: center;
-            width: 100%;
-            animation: fadeIn 4s ease-out;
+            background-color: var(--light-grey);
         }
 
-        .hero-water-finish h1 {
-            font-size: 2rem;
+        .hero-statement-finish h1 {
+            font-size: 3.5rem; /* Enlarged as requested */
             font-style: italic;
             font-weight: 400;
-            opacity: 0.8;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+            margin: 0;
+            color: var(--navy);
         }
 
         /* --- PORTFOLIO LEDGER --- */
         .ledger-container {
-            padding: 100px 8%;
+            padding: 60px 8% 100px;
         }
 
         .ledger-row {
@@ -130,16 +120,16 @@
             transition: all 0.4s ease;
         }
 
-        .ledger-row:hover { background-color: var(--light-grey); }
+        .ledger-row:hover { background-color: var(--light-grey); padding-left: 20px; }
 
         .ledger-label span {
             display: block;
-            color: var(--navy);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
             margin-bottom: 15px;
+            color: var(--muted);
         }
 
         .ledger-label h3 { font-size: 2.8rem; margin: 0; font-weight: 400; }
@@ -149,29 +139,30 @@
             max-width: 450px;
             height: 300px;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            filter: grayscale(10% );
         }
 
         footer {
-            padding: 60px 8%;
+            padding: 80px 8%;
             background: var(--navy);
             color: white;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             display: flex;
             justify-content: space-between;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 1000px) {
-            .hero-definition-container { grid-template-columns: 1fr; gap: 40px; }
+            .hero-definition-container { grid-template-columns: 1fr; gap: 50px; }
             .ledger-row { flex-direction: column; }
             .ledger-visual img { max-width: 100%; margin-top: 30px; }
+            .hero-statement-finish h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -179,7 +170,7 @@
 
     <nav>
         <div class="brand">Narrow Gate</div>
-        <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 300;">Legacy & Design</div>
+        <div style="color: var(--muted); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;">Legacy & Design</div>
     </nav>
 
     <header>
@@ -195,11 +186,11 @@
                 <p class="def-hero-meaning">is the way.</p>
             </div>
         </div>
-
-        <div class="hero-water-finish">
-            <h1 class="serif">"...which leads to life."</h1>
-        </div>
     </header>
+
+    <section class="hero-statement-finish">
+        <h1 class="serif">"...which leads to life."</h1>
+    </section>
 
     <section class="ledger-container">
         <a href="#" class="ledger-row">
@@ -246,11 +237,11 @@
     </footer>
 
     <script>
-        ScrollReveal().reveal('.def-hero-column, .ledger-row, .hero-water-finish', { 
+        ScrollReveal().reveal('.def-hero-column, .ledger-row, .hero-statement-finish', { 
             interval: 200, 
             distance: '30px', 
             origin: 'bottom',
-            duration: 1200 
+            duration: 1000 
         });
     </script>
 </body>
